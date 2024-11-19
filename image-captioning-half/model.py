@@ -16,24 +16,25 @@ wandb.init(project="captioning_flickr30k", name="fine_tuning_test_run")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-# Load and subset the dataset
+# Load and prepare the dataset
 flickr30k = load_dataset("nlphuji/flickr30k", cache_dir="./new_cache_dir")
-subset_size = 100  # Updated from 500 to 10,000
 full_dataset = flickr30k["test"]  # Only "test" split is available
 
-# Define split sizes
-train_size = int(0.8 * subset_size)  # 8,000
-val_size = int(0.1 * subset_size)    # 1,000
-test_size = subset_size - train_size - val_size  # 1,000
+# Define split sizes for the full dataset
+dataset_size = len(full_dataset)
+train_size = int(0.8 * dataset_size)
+val_size = int(0.1 * dataset_size)
+test_size = dataset_size - train_size - val_size
 
 # Perform the split
 train_dataset, val_dataset, test_dataset = random_split(
-    full_dataset.select(range(subset_size)),
+    full_dataset,
     [train_size, val_size, test_size],
-    generator=torch.Generator().manual_seed(42)
+    generator=torch.Generator().manual_seed(42)  # For reproducibility
 )
 
 print(f"Train size: {len(train_dataset)}, Validation size: {len(val_dataset)}, Test size: {len(test_dataset)}")
+
 
 # Initialize Tokenizer and Feature Extractor
 feature_extractor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224-in21k")
