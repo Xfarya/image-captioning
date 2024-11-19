@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:27:04.45355Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:27:04.45361Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_212704-dfqkhht1/logs/debug-core.log"}
+{"time":"2024-11-19T21:27:04.458573Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:27:04.471209Z","level":"INFO","msg":"created new stream","id":"dfqkhht1"}
+{"time":"2024-11-19T21:27:04.471278Z","level":"INFO","msg":"stream: started","id":"dfqkhht1"}
+{"time":"2024-11-19T21:27:04.471332Z","level":"INFO","msg":"sender: started","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:04.471278Z","level":"INFO","msg":"handler: started","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:04.471354Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:04.787846Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:27:04.790885Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:27:05.587393Z","level":"INFO","msg":"stream: closing","id":"dfqkhht1"}
+{"time":"2024-11-19T21:27:05.587655Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:27:05.587676Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:27:06.576994Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:27:06.826174Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:06.826217Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:06.826212Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"dfqkhht1"}}
+{"time":"2024-11-19T21:27:06.826425Z","level":"INFO","msg":"stream: closed","id":"dfqkhht1"}

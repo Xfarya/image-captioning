@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:27:33.991177Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:27:33.991251Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_212733-4fdyxn54/logs/debug-core.log"}
+{"time":"2024-11-19T21:27:33.997415Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:27:34.00704Z","level":"INFO","msg":"created new stream","id":"4fdyxn54"}
+{"time":"2024-11-19T21:27:34.007103Z","level":"INFO","msg":"stream: started","id":"4fdyxn54"}
+{"time":"2024-11-19T21:27:34.007099Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:34.007115Z","level":"INFO","msg":"handler: started","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:34.007153Z","level":"INFO","msg":"sender: started","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:34.291974Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:27:34.295482Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:27:35.065547Z","level":"INFO","msg":"stream: closing","id":"4fdyxn54"}
+{"time":"2024-11-19T21:27:35.065966Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:27:35.065995Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:27:35.764422Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:27:35.993208Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:35.993509Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:35.99434Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"4fdyxn54"}}
+{"time":"2024-11-19T21:27:35.994488Z","level":"INFO","msg":"stream: closed","id":"4fdyxn54"}

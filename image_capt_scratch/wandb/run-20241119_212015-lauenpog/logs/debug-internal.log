@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:20:15.043081Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:20:15.043206Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_212015-lauenpog/logs/debug-core.log"}
+{"time":"2024-11-19T21:20:15.048731Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:20:15.072848Z","level":"INFO","msg":"created new stream","id":"lauenpog"}
+{"time":"2024-11-19T21:20:15.072932Z","level":"INFO","msg":"stream: started","id":"lauenpog"}
+{"time":"2024-11-19T21:20:15.073015Z","level":"INFO","msg":"handler: started","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:15.072941Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:15.072954Z","level":"INFO","msg":"sender: started","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:15.421052Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:20:15.424332Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:20:16.242957Z","level":"INFO","msg":"stream: closing","id":"lauenpog"}
+{"time":"2024-11-19T21:20:16.243253Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:20:16.243275Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:20:16.912612Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:20:17.156621Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:17.15664Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:17.156664Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"lauenpog"}}
+{"time":"2024-11-19T21:20:17.156738Z","level":"INFO","msg":"stream: closed","id":"lauenpog"}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 184, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 166, in train_on_10_examples
+    generated_caption = generate_caption(image_tensor.squeeze(0), encoder, decoder, tokenizer, device)
+NameError: name 'generate_caption' is not defined
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 184, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 166, in train_on_10_examples
+    generated_caption = generate_caption(image_tensor.squeeze(0), encoder, decoder, tokenizer, device)
+NameError: name 'generate_caption' is not defined

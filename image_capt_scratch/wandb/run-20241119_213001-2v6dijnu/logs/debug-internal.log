@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:30:01.037703Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:30:01.037785Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_213001-2v6dijnu/logs/debug-core.log"}
+{"time":"2024-11-19T21:30:01.042267Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:30:01.058493Z","level":"INFO","msg":"created new stream","id":"2v6dijnu"}
+{"time":"2024-11-19T21:30:01.058553Z","level":"INFO","msg":"stream: started","id":"2v6dijnu"}
+{"time":"2024-11-19T21:30:01.058554Z","level":"INFO","msg":"handler: started","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:30:01.058567Z","level":"INFO","msg":"sender: started","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:30:01.058614Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:30:01.366675Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:30:01.369662Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:31:20.80988Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:31:20.810046Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:31:23.388298Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:31:24.665945Z","level":"INFO","msg":"stream: closing","id":"2v6dijnu"}
+{"time":"2024-11-19T21:31:24.665991Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:31:24.666044Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:31:24.666036Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"2v6dijnu"}}
+{"time":"2024-11-19T21:31:24.666237Z","level":"INFO","msg":"stream: closed","id":"2v6dijnu"}

@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:17:31.883624Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:17:31.883675Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_211731-jfqhpjwe/logs/debug-core.log"}
+{"time":"2024-11-19T21:17:31.885824Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:17:31.892762Z","level":"INFO","msg":"created new stream","id":"jfqhpjwe"}
+{"time":"2024-11-19T21:17:31.892824Z","level":"INFO","msg":"stream: started","id":"jfqhpjwe"}
+{"time":"2024-11-19T21:17:31.892876Z","level":"INFO","msg":"handler: started","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:31.892857Z","level":"INFO","msg":"sender: started","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:31.892843Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:32.224875Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:17:32.225786Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:17:32.82568Z","level":"INFO","msg":"stream: closing","id":"jfqhpjwe"}
+{"time":"2024-11-19T21:17:32.825698Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:17:32.825721Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:17:33.489653Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:17:33.724407Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:33.72443Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:33.724423Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"jfqhpjwe"}}
+{"time":"2024-11-19T21:17:33.724596Z","level":"INFO","msg":"stream: closed","id":"jfqhpjwe"}

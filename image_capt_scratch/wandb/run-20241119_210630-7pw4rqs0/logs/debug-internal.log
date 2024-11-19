@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:06:30.56485Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:06:30.5649Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_210630-7pw4rqs0/logs/debug-core.log"}
+{"time":"2024-11-19T21:06:30.591477Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:06:30.605267Z","level":"INFO","msg":"created new stream","id":"7pw4rqs0"}
+{"time":"2024-11-19T21:06:30.605322Z","level":"INFO","msg":"stream: started","id":"7pw4rqs0"}
+{"time":"2024-11-19T21:06:30.605328Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:30.605365Z","level":"INFO","msg":"sender: started","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:30.60538Z","level":"INFO","msg":"handler: started","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:31.050879Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:06:31.053037Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:06:31.729335Z","level":"INFO","msg":"stream: closing","id":"7pw4rqs0"}
+{"time":"2024-11-19T21:06:31.729667Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:06:31.729695Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:06:34.355546Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:06:34.603205Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:34.603268Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:34.603264Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"7pw4rqs0"}}
+{"time":"2024-11-19T21:06:34.603813Z","level":"INFO","msg":"stream: closed","id":"7pw4rqs0"}

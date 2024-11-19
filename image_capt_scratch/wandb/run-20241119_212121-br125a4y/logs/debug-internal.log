@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:21:21.148155Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:21:21.148193Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_212121-br125a4y/logs/debug-core.log"}
+{"time":"2024-11-19T21:21:21.152629Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:21:21.162945Z","level":"INFO","msg":"created new stream","id":"br125a4y"}
+{"time":"2024-11-19T21:21:21.162989Z","level":"INFO","msg":"stream: started","id":"br125a4y"}
+{"time":"2024-11-19T21:21:21.162994Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:21.163058Z","level":"INFO","msg":"handler: started","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:21.163Z","level":"INFO","msg":"sender: started","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:21.50761Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:21:21.510331Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:21:22.722955Z","level":"INFO","msg":"stream: closing","id":"br125a4y"}
+{"time":"2024-11-19T21:21:22.723115Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:21:22.723132Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:21:23.613893Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:21:23.843944Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:23.84393Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:23.843941Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"br125a4y"}}
+{"time":"2024-11-19T21:21:23.844118Z","level":"INFO","msg":"stream: closed","id":"br125a4y"}

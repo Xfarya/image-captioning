@@ -1,0 +1,37 @@
+{
+  "os":  "macOS-14.2.1-arm64-arm-64bit",
+  "python":  "3.9.6",
+  "startedAt":  "2024-11-19T21:21:21.143555Z",
+  "program":  "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py",
+  "codePath":  "image_capt_scratch/model.py",
+  "git":  {
+    "remote":  "https://github.com/Xfarya/image-captioning.git",
+    "commit":  "af232a52a4d466c366d4279f0b66dd101dbead5a"
+  },
+  "email":  "farya243@gmail.com",
+  "root":  "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch",
+  "host":  "Faryas-MacBook-Pro.local",
+  "username":  "farya",
+  "executable":  "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+  "codePathLocal":  "model.py",
+  "cpu_count":  10,
+  "cpu_count_logical":  10,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "338175942656"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  10,
+    "countLogical":  10
+  },
+  "gpuapple":  {
+    "gpuType":  "Apple M1 Pro",
+    "vendor":  "sppci_vendor_Apple",
+    "cores":  16
+  }
+}

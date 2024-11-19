@@ -1,0 +1,18 @@
+{"time":"2024-11-19T21:09:27.065412Z","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-11-19T21:09:27.065499Z","level":"INFO","msg":"created symlink","path":"/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/wandb/run-20241119_210927-9ogreqfk/logs/debug-core.log"}
+{"time":"2024-11-19T21:09:27.069578Z","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-11-19T21:09:27.082309Z","level":"INFO","msg":"created new stream","id":"9ogreqfk"}
+{"time":"2024-11-19T21:09:27.082365Z","level":"INFO","msg":"stream: started","id":"9ogreqfk"}
+{"time":"2024-11-19T21:09:27.082402Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:09:27.082366Z","level":"INFO","msg":"handler: started","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:09:27.082387Z","level":"INFO","msg":"sender: started","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:09:27.452552Z","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-11-19T21:09:27.454883Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-19T21:17:20.736069Z","level":"INFO","msg":"stream: closing","id":"9ogreqfk"}
+{"time":"2024-11-19T21:17:20.736449Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-19T21:17:20.736496Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-19T21:17:23.424084Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-19T21:17:23.695155Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:17:23.695181Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:17:23.695351Z","level":"INFO","msg":"sender: closed","stream_id":{"value":"9ogreqfk"}}
+{"time":"2024-11-19T21:17:23.6957Z","level":"INFO","msg":"stream: closed","id":"9ogreqfk"}

@@ -1,0 +1,67 @@
+Epoch 1/500, Loss: 97.5720
+Epoch 50/500, Loss: 1.8005
+Epoch 100/500, Loss: 3.0864
+Epoch 150/500, Loss: 1.5440
+Epoch 200/500, Loss: 1.5426
+Epoch 250/500, Loss: 1.5249
+Epoch 300/500, Loss: 1.5048
+Epoch 350/500, Loss: 1.5091
+Epoch 400/500, Loss: 1.5196
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 253, in <module>
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 223, in train_on_10_examples
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 160, in generate_caption
+    encoder.eval()
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 130, in forward
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 110, in forward
+    x = self.embedding(x)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 253, in <module>
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 223, in train_on_10_examples
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 160, in generate_caption
+    encoder.eval()
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 130, in forward
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 110, in forward
+    x = self.embedding(x)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

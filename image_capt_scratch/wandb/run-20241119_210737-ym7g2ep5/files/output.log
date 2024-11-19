@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 253, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 208, in train_on_10_examples
+    encoder_output = encoder(image_tensors[i].unsqueeze(0))
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 76, in forward
+    x = self.conv(x)  # [batch_size, dim_size, 28, 28]
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/conv.py", line 458, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [32, 1, 7, 7], expected input[1, 3, 224, 224] to have 1 channels, but got 3 channels instead
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 253, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 208, in train_on_10_examples
+    encoder_output = encoder(image_tensors[i].unsqueeze(0))
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 76, in forward
+    x = self.conv(x)  # [batch_size, dim_size, 28, 28]
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/conv.py", line 458, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [32, 1, 7, 7], expected input[1, 3, 224, 224] to have 1 channels, but got 3 channels instead

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 178, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 142, in train_on_10_examples
+    image_tensor = preprocess_pil_image(image).unsqueeze(0).to(device)
+NameError: name 'preprocess_pil_image' is not defined
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 178, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 142, in train_on_10_examples
+    image_tensor = preprocess_pil_image(image).unsqueeze(0).to(device)
+NameError: name 'preprocess_pil_image' is not defined

@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/PIL/Image.py", line 3277, in fromarray
+    mode, rawmode = _fromarray_typemap[typekey]
+KeyError: ((1, 1, 224), '|u1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 243, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 228, in train_on_10_examples
+    table.add_data(wandb.Image(image_tensor.cpu().squeeze().permute(1, 2, 0)), caption, generated_caption)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/wandb/sdk/data_types/image.py", line 180, in __init__
+    self._initialize_from_data(data_or_path, mode, file_type)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/wandb/sdk/data_types/image.py", line 316, in _initialize_from_data
+    self._image = pil_image.fromarray(
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/PIL/Image.py", line 3281, in fromarray
+    raise TypeError(msg) from e
+TypeError: Cannot handle this data type: (1, 1, 224), |u1
+Traceback (most recent call last):
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/PIL/Image.py", line 3277, in fromarray
+    mode, rawmode = _fromarray_typemap[typekey]
+KeyError: ((1, 1, 224), '|u1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 243, in <module>
+    train_on_10_examples(
+  File "/Users/farya/Documents/MachineLearning/Week6/image_capt_scratch/model.py", line 228, in train_on_10_examples
+    table.add_data(wandb.Image(image_tensor.cpu().squeeze().permute(1, 2, 0)), caption, generated_caption)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/wandb/sdk/data_types/image.py", line 180, in __init__
+    self._initialize_from_data(data_or_path, mode, file_type)
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/wandb/sdk/data_types/image.py", line 316, in _initialize_from_data
+    self._image = pil_image.fromarray(
+  File "/Users/farya/Library/Python/3.9/lib/python/site-packages/PIL/Image.py", line 3281, in fromarray
+    raise TypeError(msg) from e
+TypeError: Cannot handle this data type: (1, 1, 224), |u1
