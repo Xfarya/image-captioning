@@ -1,29 +1,42 @@
+# Import necessary modules
 import wandb
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, Subset, random_split
 from datasets import load_dataset
 from PIL import Image
 from torchvision.transforms import Compose, Resize, ToTensor
 from transformers import ViTImageProcessor, GPT2Tokenizer, ViTModel, GPT2LMHeadModel
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from torch.optim import AdamW
 
 # Initialize WandB
-wandb.init(project="captioning_flickr30k", name="test_run_with_metrics_and_table")
+wandb.init(project="captioning_flickr30k", name="fine_tuning_with_validation")
 
 # Set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load the Flickr30k Dataset
+# Load the dataset
 flickr30k = load_dataset("nlphuji/flickr30k", cache_dir="./new_cache_dir")
+dataset = flickr30k["test"]  # Use the single available split
 
-# Combine shards into a single dataset and split it
-test_dataset = flickr30k["test"].flatten_indices()
+# Define split sizes
+train_size = int(0.8 * len(dataset))  # 80% training
+val_size = int(0.1 * len(dataset))    # 10% validation
+test_size = len(dataset) - train_size - val_size  # Remaining 10% for testing
 
-# Prepare a subset of 500 images for testing
-test_dataset = test_dataset.select(range(500))
+# Perform the split
+train_dataset, val_dataset, test_dataset = random_split(
+    dataset,
+    [train_size, val_size, test_size],
+    generator=torch.Generator().manual_seed(42)  # Ensure reproducibility
+)
 
-print(f"Test examples: {len(test_dataset)}")
+print(f"Train size: {len(train_dataset)}, Validation size: {len(val_dataset)}, Test size: {len(test_dataset)}")
+
+# Limit datasets to 500 examples for quick testing
+train_dataset = Subset(train_dataset, range(min(500, len(train_dataset))))
+val_dataset = Subset(val_dataset, range(min(500, len(val_dataset))))
+test_dataset = Subset(test_dataset, range(min(500, len(test_dataset))))
 
 # Initialize Tokenizer and Feature Extractor
 feature_extractor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224-in21k")
@@ -48,23 +61,27 @@ def preprocess(example):
         padding="max_length",
         truncation=True,
         max_length=30,
-        return_tensors="np"
+        return_tensors="pt"
     )
-    
-    attention_mask = tokenized_caption['attention_mask']
-    
     return {
         "image": image,
         "input_ids": tokenized_caption["input_ids"][0],
-        "attention_mask": attention_mask[0],  # Explicitly pass the attention mask
+        "attention_mask": tokenized_caption["attention_mask"][0],
         "caption": example["caption"]  # Include the actual caption for comparison
     }
 
-# Apply preprocessing to test dataset
-test_dataset = test_dataset.map(preprocess)
+# Preprocess datasets
+def preprocess_dataset(subset, original_dataset):
+    processed_data = []
+    for idx in subset.indices:  # Use indices to access the original dataset
+        example = original_dataset[idx]
+        processed_data.append(preprocess(example))
+    return processed_data
 
-# Update dataset format for PyTorch
-test_dataset.set_format(type="torch", columns=["image", "input_ids", "attention_mask", "caption"])
+# Apply preprocessing
+train_dataset = preprocess_dataset(train_dataset, dataset)
+val_dataset = preprocess_dataset(val_dataset, dataset)
+test_dataset = preprocess_dataset(test_dataset, dataset)
 
 # PyTorch Dataset Class
 class Flickr30kDataset(Dataset):
@@ -80,10 +97,12 @@ class Flickr30kDataset(Dataset):
             "image": item["image"],
             "input_ids": item["input_ids"].clone().detach(),
             "attention_mask": item["attention_mask"].clone().detach(),
-            "caption": item["caption"]  # Pass the actual caption
+            "caption": item["caption"]
         }
 
-# Create DataLoader for testing
+# Create DataLoaders
+train_loader = DataLoader(Flickr30kDataset(train_dataset), batch_size=8, shuffle=True)
+val_loader = DataLoader(Flickr30kDataset(val_dataset), batch_size=8, shuffle=False)
 test_loader = DataLoader(Flickr30kDataset(test_dataset), batch_size=8, shuffle=False)
 
 # Encoder-Decoder Wrapper
@@ -96,8 +115,7 @@ class EncoderDecoderWrapper(nn.Module):
     
     def forward(self, image_inputs, caption_inputs):
         # Encode image
-        with torch.no_grad():
-            image_features = vit_model(image_inputs).last_hidden_state
+        image_features = self.vit_model(pixel_values=image_inputs).last_hidden_state
         
         # Project image features to GPT-2 embedding space
         projected_features = self.image_projector(image_features[:, 0, :])  # CLS token
@@ -133,88 +151,82 @@ gpt2_model = GPT2LMHeadModel.from_pretrained("gpt2")
 # Initialize Model
 model = EncoderDecoderWrapper(vit_model, gpt2_model, embed_dim=gpt2_model.config.n_embd).to(device)
 
-# Initialize WandB Table
-wandb_table = wandb.Table(columns=["Image", "Actual Caption", "Generated Caption"])
+# Define optimizer
+optimizer = AdamW(model.parameters(), lr=1e-5, weight_decay=0.01)
 
-# Metrics
-total_loss = 0
-total_bleu_score = 0
-total_correct = 0
-total_tokens = 0
-num_captions = 0
+# Fine-Tuning Loop
+num_epochs = 5
+for epoch in range(num_epochs):
+    model.train()
+    total_train_loss = 0
 
-# Test Loop for Generating Captions
-# Test Loop for Generating Captions
-model.eval()
-smooth_fn = SmoothingFunction().method1  # BLEU smoothing
-for batch in test_loader:
-    image_inputs = batch["image"].to(device)
-    input_ids = batch["input_ids"].to(device)
-    attention_mask = batch["attention_mask"].to(device)
+    for batch in train_loader:
+        image_inputs = batch["image"].to(device)
+        input_ids = batch["input_ids"].to(device)
+        attention_mask = batch["attention_mask"].to(device)
 
-    caption_inputs = {"input_ids": input_ids, "attention_mask": attention_mask}
+        caption_inputs = {"input_ids": input_ids, "attention_mask": attention_mask}
 
-    with torch.no_grad():
         # Forward pass
         outputs = model(image_inputs, caption_inputs)
         loss = outputs.loss
-        total_loss += loss.item()
+        total_train_loss += loss.item()
 
-        # Token-Level Accuracy Calculation
-        logits = outputs.logits
-        predictions = torch.argmax(logits, dim=-1)  # Predicted token IDs
-        correct = (predictions[:, 1:] == input_ids).float() * attention_mask  # Ignore padding
-        total_correct += correct.sum().item()
-        total_tokens += attention_mask.sum().item()
+        # Backward pass
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-        # Generate captions
-        image_features = vit_model(image_inputs).last_hidden_state  # Corrected usage
-        projected_features = model.image_projector(image_features[:, 0, :]).unsqueeze(1)
-        generated_ids = gpt2_model.generate(
-            inputs_embeds=projected_features,
-            max_length=20,
-            eos_token_id=gpt2_model.config.eos_token_id,
-            pad_token_id=gpt2_model.config.eos_token_id,
-            do_sample=True,
-            temperature=0.7
-        )
-        generated_captions = [tokenizer.decode(ids, skip_special_tokens=True) for ids in generated_ids]
+        # Log batch loss
+        wandb.log({"Train Batch Loss": loss.item()})
 
-        # Compute BLEU for each caption
-        actual_captions = batch["caption"]
-        for actual, generated in zip(actual_captions, generated_captions):
-            if isinstance(actual, tuple):  # Handle tuple captions
-                actual = actual[0]  # Use the first caption as reference
-            reference = [actual.split()]  # Tokenize the actual caption
-            candidate = generated.split()  # Tokenize the generated caption
-            bleu_score = sentence_bleu(reference, candidate, smoothing_function=smooth_fn)
-            total_bleu_score += bleu_score
-            num_captions += 1
+    # Log epoch metrics
+    avg_train_loss = total_train_loss / len(train_loader)
+    wandb.log({"Epoch Train Loss": avg_train_loss})
+    print(f"Epoch {epoch + 1}/{num_epochs}, Train Loss: {avg_train_loss}")
 
-        # Log batch loss and accuracy to WandB
-        batch_accuracy = correct.sum().item() / attention_mask.sum().item()
-        wandb.log({"Batch Loss": loss.item(), "Batch Accuracy": batch_accuracy})
+    # Validation with WandB Logging for Images and Captions
+    model.eval()
+    total_val_loss = 0
 
-        # Add data to WandB table
-        for img, actual_caption, generated_caption in zip(batch["image"], actual_captions, generated_captions):
-            wandb_table.add_data(
-                wandb.Image(img.permute(1, 2, 0).numpy()),  # Convert to HWC format
-                actual_caption if not isinstance(actual_caption, tuple) else actual_caption[0],
-                generated_caption
+    with torch.no_grad():
+        for batch in val_loader:
+            image_inputs = batch["image"].to(device)
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+
+            caption_inputs = {"input_ids": input_ids, "attention_mask": attention_mask}
+
+            # Forward pass
+            outputs = model(image_inputs, caption_inputs)
+            total_val_loss += outputs.loss.item()
+
+            # Generate captions for WandB logging
+            generated_ids = gpt2_model.generate(
+                inputs_embeds=model.image_projector(vit_model(pixel_values=image_inputs).last_hidden_state[:, 0, :]).unsqueeze(1),
+                max_length=20,
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=tokenizer.pad_token_id,
+                do_sample=True,
+                temperature=0.7,
             )
+            generated_captions = [tokenizer.decode(ids, skip_special_tokens=True) for ids in generated_ids]
 
-# Calculate final metrics
-avg_loss = total_loss / len(test_loader)
-avg_bleu_score = total_bleu_score / num_captions
-accuracy = total_correct / total_tokens  # Overall accuracy
+            # Log images and captions
+            for img, actual_caption, generated_caption in zip(batch["image"], batch["caption"], generated_captions):
+                wandb.log({
+                    "Validation Example": wandb.Image(
+                        img.permute(1, 2, 0).numpy(),  # Convert to HWC format
+                        caption=f"Actual: {actual_caption}\nGenerated: {generated_caption}"
+                    )
+                })
 
-# Log final metrics to WandB
-wandb.log({
-    "Average Test Loss": avg_loss,
-    "Average BLEU Score": avg_bleu_score,
-    "Token-Level Accuracy": accuracy,
-    "Comparison Table": wandb_table
-})
-print(f"Average Test Loss: {avg_loss}")
-print(f"Average BLEU Score: {avg_bleu_score}")
-print(f"Token-Level Accuracy: {accuracy}")
+    avg_val_loss = total_val_loss / len(val_loader)
+    wandb.log({"Epoch Validation Loss": avg_val_loss})
+    print(f"Epoch {epoch + 1}/{num_epochs}, Validation Loss: {avg_val_loss}")
+
+# Save Model Components
+vit_model.save_pretrained("./fine_tuned_captioning_model/vit_model")
+gpt2_model.save_pretrained("./fine_tuned_captioning_model/gpt2_model")
+torch.save(model.state_dict(), "./fine_tuned_captioning_model/encoder_decoder_wrapper.pth")
+print("Model saved successfully!")
